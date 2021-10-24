@@ -45,8 +45,8 @@
                         <asp:TextBox ID="txtEmail" TextMode="Email" runat="server" Width="183px"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtName" ErrorMessage="User Name is Required" ForeColor="Red">*</asp:RequiredFieldValidator>
-                        <asp:CustomValidator ID="mailValidation" runat="server" ControlToValidate="txtEmail" ErrorMessage="Not ITI Email" ForeColor="Red" OnServerValidate="mailValidation_ServerValidate">*</asp:CustomValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email is Required" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        <asp:CustomValidator ID="mailValidation" runat="server" ControlToValidate="txtEmail" ErrorMessage="Not ITI Email" ForeColor="Red" OnServerValidate="mailValidation_ServerValidate" Display="Dynamic">*</asp:CustomValidator>
                     </td>
                 </tr>
                 <tr>
@@ -55,7 +55,7 @@
                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Width="183px"></asp:TextBox>
                         <%--<input id="txtPassword" class="auto-style5" type="password" runat="server" />--%></td>
                     <td>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" ErrorMessage="Password is Required" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ClientValidationFunction="IsITIEmail" ControlToValidate="txtPassword" ErrorMessage="Password is Required" ForeColor="Red">*</asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -95,5 +95,12 @@
             </table>
         </form>
     </div>
-
+     <script>
+        function IsITIEmail(source, args) {
+            if (args.Value.includes("@iti.gov.eg"))
+                args.IsValid = true;
+            else
+                args.IsValid = false;
+        }
+     </script>
 </asp:Content>
