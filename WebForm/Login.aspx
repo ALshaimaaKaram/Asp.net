@@ -10,14 +10,17 @@
         .auto-style3 {
             width: 99%;
             height: 143px;
+            margin-top:20px;
         }
 
         .auto-style4 {
             width: 196px;
+            margin-top:20px;
         }
 
         .auto-style5 {
             width: 185px;
+            margin-top:20px;
         }
 
         .auto-style6 {
@@ -31,18 +34,18 @@
         <form id="form" runat="server" style="margin: 100px; margin-left: 400px;">
             <table class="auto-style3">
                 <tr>
-                    <td class="auto-style1">UserName</td>
+                    <td class="auto-style1 form-label">UserName</td>
                     <td class="auto-style4">
-                        <asp:TextBox ID="txtName" runat="server" Width="183px"></asp:TextBox>
+                        <asp:TextBox ID="txtName" class="form-control" runat="server" Width="183px"></asp:TextBox>
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtName" ErrorMessage="User Name is Required" ForeColor="Red">*</asp:RequiredFieldValidator>
                     </td>
                 </tr>
                  <tr>
-                    <td class="auto-style1">Email</td>
+                    <td class="auto-style1 form-label">Email</td>
                     <td class="auto-style4">
-                        <asp:TextBox ID="txtEmail" TextMode="Email" runat="server" Width="183px"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" class="form-control" TextMode="Email" runat="server" Width="183px"></asp:TextBox>
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email is Required" ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -50,18 +53,18 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Password</td>
+                    <td class="auto-style1 form-label">Password</td>
                     <td class="auto-style4">
-                        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Width="183px"></asp:TextBox>
+                        <asp:TextBox class="form-control" ID="txtPassword" runat="server" TextMode="Password" Width="183px"></asp:TextBox>
                         <%--<input id="txtPassword" class="auto-style5" type="password" runat="server" />--%></td>
                     <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ClientValidationFunction="IsITIEmail" ControlToValidate="txtPassword" ErrorMessage="Password is Required" ForeColor="Red">*</asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Language</td>
+                    <td class="auto-style1 form-label">Language</td>
                     <td class="auto-style4">
-                        <asp:DropDownList ID="dpdownLang" runat="server">
+                        <asp:DropDownList class="form-select" ID="dpdownLang" runat="server">
                         </asp:DropDownList>
                     </td>
                     <td>&nbsp;</td>
@@ -69,7 +72,7 @@
                 <tr>
                     <td class="auto-style1">&nbsp;</td>
                     <td class="auto-style4">
-                        <asp:CheckBox ID="ckbRemember" runat="server" Text=" Remember me" />
+                        <asp:CheckBox class="form-check-label" ID="ckbRemember" runat="server" Text=" Remember me" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>
