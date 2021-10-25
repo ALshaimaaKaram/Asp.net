@@ -43,5 +43,11 @@ namespace WebForm
             }
 
         }
+
+        protected void btnlogout_Click(object sender, EventArgs e)
+        {
+            Session["IsloggedIn"] = null;
+            Response.Redirect("Login.aspx");
+        }
     }
 }

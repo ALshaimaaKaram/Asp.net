@@ -8,7 +8,12 @@
     <br />
     <asp:Label ID="lblCount" runat="server"></asp:Label>
     <br />
+        <br />
     <br />
     <asp:Label ID="lblVstorCount" runat="server"></asp:Label>
+        <br />
+        <br />
+        <asp:Button ID="btnlogout" runat="server" OnClick="btnlogout_Click" Text="Logout" Width="94px" />
+        <br />
 </form>
 </asp:Content>
