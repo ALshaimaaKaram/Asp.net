@@ -1,0 +1,35 @@
+﻿@using SendFormData.Models
+@model List<User>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container w-50 m-auto">
+        <h1>List of User</h1>
+        <div class="row">
+            <div class="col-3 header">ID</div>
+            <div class="col-3 header">UserName</div>
+            <div class="col-3 header">Password</div>
+            <div class="col-3 header">Display</div>
+        </div>
+
+        @foreach (User user in Model)
+        {
+            <div class="row bg-success">
+                <div class="col-3">@user.ID</div>
+                <div class="col-3">@user.UserName</div>
+                <div class="col-3">@user.Password</div>
+                <div class="col-3"></div>
+            </div>
+        }
+
+    </div>
+</body>
+</html>

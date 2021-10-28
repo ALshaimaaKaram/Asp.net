@@ -1,0 +1,36 @@
+﻿@using SendFormData.Models
+@model User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container w-50 mt-5">
+        <h1> Login Page</h1>
+        <div class="m-auto p-2">
+            @using (Html.BeginForm())
+            {
+                <div class="row">
+                    @Html.LabelFor(i => i.UserName, new { @class = "form-label" })
+                    @Html.TextBoxFor(i => i.UserName, new { @class = "form-control" })
+                </div>
+
+                <div class="row">
+                    @Html.LabelFor(i => i.Password, new { @class = "form-label" })
+                    @Html.TextBoxFor(i => i.Password, new { @class = "form-control" })
+                </div>
+                <input type="submit" class="btn btn-primary mt-3" value="Login" />
+            }
+        </div>
+    </div>
+</body>
+</html>
