@@ -11,25 +11,28 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container w-50 m-auto">
+    <div class="container w-50 m-auto mt-5">
+        <h3>Logged-In User ID : @ViewBag.IdUser</h3>
+        <h3> Logged-In UserName : @ViewBag.UserName</h3>
         <h1>List of User</h1>
-        <div class="row">
-            <div class="col-3 header">ID</div>
-            <div class="col-3 header">UserName</div>
-            <div class="col-3 header">Password</div>
-            <div class="col-3 header">Display</div>
-        </div>
-
-        @foreach (User user in Model)
-        {
-            <div class="row bg-success">
-                <div class="col-3">@user.ID</div>
-                <div class="col-3">@user.UserName</div>
-                <div class="col-3">@user.Password</div>
-                <div class="col-3"></div>
+        <div class="table table-success">
+            <div class="row header bg-primary">
+                <h4 class="col-3">ID</h4>
+                <h4 class="col-3">UserName</h4>
+                <h4 class="col-3">Password</h4>
+                <h4 class="col-3">Display</h4>
             </div>
-        }
 
+            @foreach (User user in Model)
+            {
+                <div class="row">
+                    <div class="col-3">@user.ID</div>
+                    <div class="col-3">@user.UserName</div>
+                    <div class="col-3">@user.Password</div>
+                    <div class="col-3"></div>
+                </div>
+            }
+        </div>
     </div>
 </body>
 </html>

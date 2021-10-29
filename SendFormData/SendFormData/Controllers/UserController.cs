@@ -12,6 +12,7 @@ namespace SendFormData.Controllers
     {
         public ActionResult index()
         {
+
             return View(InMemoryUserStorage.Users);
         }
 
@@ -32,8 +33,9 @@ namespace SendFormData.Controllers
                 return View();
 
             //TempData["SelectedUser"] = userLogin;
-            //TempData
-            return Redirect("/User/Login");
+            ViewBag.IdUser = userLogin.ID;
+            ViewBag.UserName = userLogin.UserName;
+            return View("~/Views/User/index.cshtml");
         }
     }
 }
