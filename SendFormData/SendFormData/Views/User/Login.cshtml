@@ -14,22 +14,22 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container w-50 mt-5">
+    <div class="container w-50 mt-5 p-0">
         <h1> Login Page</h1>
-        <div class="m-auto p-2">
+        <div class="m-auto">
             @using (Html.BeginForm())
-            {
+             {
                 <div class="row">
                     @Html.LabelFor(i => i.UserName, new { @class = "form-label" })
                     @Html.TextBoxFor(i => i.UserName, new { @class = "form-control" })
                 </div>
 
-                <div class="row">
+                <div class="row mt-2">
                     @Html.LabelFor(i => i.Password, new { @class = "form-label" })
-                    @Html.TextBoxFor(i => i.Password, new { @class = "form-control" })
+                    @Html.PasswordFor(i => i.Password, new { @class = "form-control" })
                 </div>
                 <input type="submit" class="btn btn-primary mt-3" value="Login" />
-            }
+             }
         </div>
     </div>
 </body>

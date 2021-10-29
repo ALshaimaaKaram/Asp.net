@@ -12,12 +12,13 @@ namespace SendFormData.Controllers
     {
         public ActionResult index()
         {
-
+            TempData.Keep("User");
             return View(InMemoryUserStorage.Users);
         }
 
         [HttpGet]
         public ActionResult Login()
+        
         {
             return View();
         }
@@ -32,10 +33,25 @@ namespace SendFormData.Controllers
             if (userLogin == null)
                 return View();
 
-            //TempData["SelectedUser"] = userLogin;
-            ViewBag.IdUser = userLogin.ID;
-            ViewBag.UserName = userLogin.UserName;
-            return View("~/Views/User/index.cshtml");
+            #region ViewBag
+            //Not Valid because I move data from Action to Action (view to view)
+            //ViewBag.IdUser = userLogin.ID;
+            //ViewData[UserName] = userLogin.UserName; 
+            #endregion
+
+            TempData["User"] = userLogin;
+       
+            return Redirect("/User/index");
+        }
+
+        public ActionResult Display(int ID)
+        {
+            User userSelection = InMemoryUserStorage.Users.FirstOrDefault(s => s.ID == ID);
+
+            if (userSelection == null)
+                return View();
+
+            return View(userSelection);
         }
     }
 }

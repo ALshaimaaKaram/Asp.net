@@ -1,0 +1,35 @@
+﻿@using SendFormData.Models
+@model User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Display</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="text-success p-2">
+            <h1>User Login</h1>
+            <h6>ID: @{ int ID = ((User)TempData["User"]).ID;} @ID</h6>
+            <h6>UserName: @{ string Name = ((User)TempData["User"]).UserName;} @Name</h6>
+            <h6>Password: @{ string Password = ((User)TempData["User"]).Password;} @Password</h6>
+        </div>
+
+        <div class="text-warning p-2">
+            <h1>User Selector</h1>
+            @*@Html.DisplayForModel()*@
+
+            <h6>ID: @Model.ID</h6>
+            <h6>UserName: @Model.UserName</h6>
+            <h6>Password: @Model.Password</h6>
+        </div>
+    </div>
+</body>
+</html>

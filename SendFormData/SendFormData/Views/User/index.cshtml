@@ -12,8 +12,9 @@
 </head>
 <body>
     <div class="container w-50 m-auto mt-5">
-        <h3>Logged-In User ID : @ViewBag.IdUser</h3>
-        <h3> Logged-In UserName : @ViewBag.UserName</h3>
+        <h3>Logged-In User_ID : @{ int ID = ((User)TempData["User"]).ID; } @ID</h3>
+        <h3> Logged-In UserName : @{ string Name = ((User)TempData["User"]).UserName; } @Name</h3>
+        <h3> Logged-In Password : @{ string Password = ((User)TempData["User"]).Password; } @Password</h3>
         <h1>List of User</h1>
         <div class="table table-success">
             <div class="row header bg-primary">
@@ -29,9 +30,9 @@
                     <div class="col-3">@user.ID</div>
                     <div class="col-3">@user.UserName</div>
                     <div class="col-3">@user.Password</div>
-                    <div class="col-3"></div>
+                    <div class="col-3">@Html.ActionLink("Display", "Display", new { id = user.ID })</div>
                 </div>
-            }
+             }
         </div>
     </div>
 </body>
