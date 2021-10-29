@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SendFormData.Constraints;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,7 +18,11 @@ namespace SendFormData
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                //constraints: new
+                //{
+                //    CustomCostraint = new OnlyEdgeConstrint()
+                //}
+            ); 
         }
     }
 }
