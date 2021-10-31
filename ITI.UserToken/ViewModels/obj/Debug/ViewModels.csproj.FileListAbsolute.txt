@@ -1,0 +1,10 @@
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ViewModels\bin\Debug\ViewModels.dll
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ViewModels\bin\Debug\ViewModels.pdb
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ViewModels\bin\Debug\ITI.UserToken.Models.dll
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ViewModels\bin\Debug\ITI.UserToken.Models.pdb
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ViewModels\bin\Debug\ITI.UserToken.Models.dll.config
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ViewModels\obj\Debug\ViewModels.csproj.AssemblyReference.cache
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ViewModels\obj\Debug\ViewModels.csproj.CoreCompileInputs.cache
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ViewModels\obj\Debug\ViewModels.csproj.CopyComplete
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ViewModels\obj\Debug\ViewModels.dll
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ViewModels\obj\Debug\ViewModels.pdb

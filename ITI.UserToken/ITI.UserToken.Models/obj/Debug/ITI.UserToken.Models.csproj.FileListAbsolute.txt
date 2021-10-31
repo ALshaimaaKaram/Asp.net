@@ -1,0 +1,12 @@
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Models\bin\Debug\ITI.UserToken.Models.dll.config
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Models\bin\Debug\ITI.UserToken.Models.dll
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Models\bin\Debug\ITI.UserToken.Models.pdb
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Models\bin\Debug\EntityFramework.dll
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Models\bin\Debug\EntityFramework.xml
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Models\obj\Debug\ITI.UserToken.Models.csproj.AssemblyReference.cache
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Models\obj\Debug\ITI.UserToken.Models.csproj.CoreCompileInputs.cache
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Models\obj\Debug\ITI.UserToken.Models.csproj.CopyComplete
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Models\obj\Debug\ITI.UserToken.Models.dll
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Models\obj\Debug\ITI.UserToken.Models.pdb

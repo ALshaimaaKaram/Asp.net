@@ -1,0 +1,28 @@
+﻿@using ViewModels
+@model IEnumerable<UserViewModel>
+
+<h1 class="m-5 ms-2">List of User</h1>
+<table class="table table-warning">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Code</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (UserViewModel UserV in Model)
+        {
+            <tr>
+                <td>@UserV.ID</td>
+                <td>@UserV.UserName</td>
+                <td>@UserV.Code</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section UserInfo
+{
+    <h3 class="text-center text-warning">Hello User</h3>
+}
