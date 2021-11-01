@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ViewModels;
+using ViewModels.User;
 
 namespace ITI.UserToken.Presentation.Controllers
 {
@@ -22,23 +23,44 @@ namespace ITI.UserToken.Presentation.Controllers
         [HttpGet]
         public ActionResult index()
         {
+            ViewBag.Title = "Index";
             if (Session["User"] == null)
                 return Redirect("/User/Login");
 
             var Users = UserRepository.Get()
-                        .ToList().Select(i => i.ToViewModel());
+                        .Select(i => new UserViewModel()
+                        {
+                            ID = i.ID,
+                            UserName = i.UserName,
+                            Address = i.Address,
+                            Mobile = i.Mobile
+                        }).ToList();
 
             return View(Users);
         }
 
-        [HttpPost]
-        public ActionResult Add(User User)
+        [HttpGet]
+        public ActionResult Create()
         {
+            ViewBag.Title = "Create";
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(UserEditViewModel User)
+        {
+            ViewBag.Title = "Create";
             if (Session["User"] == null)
                 return Redirect("/User/Login");
 
-            UserRepository.Add(User);
-            UnitOfWork.Save();
+            if (ModelState.IsValid)
+            {
+                UserRepository.Add(User.ToModel());
+                UnitOfWork.Save();
+
+                return Redirect("/User/index");
+            }
 
             return View();
         }
@@ -46,11 +68,12 @@ namespace ITI.UserToken.Presentation.Controllers
         [HttpGet]
         public ActionResult Login()
         {
+            ViewBag.Title = "User Login Page";
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(UserEditViewModel User)
+        public ActionResult Login(UserLoginViewModel User)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -62,7 +85,7 @@ namespace ITI.UserToken.Presentation.Controllers
                 return View();
 
             Session["User"] = User;
-      
+
             return Redirect("/User/index");
         }
     }

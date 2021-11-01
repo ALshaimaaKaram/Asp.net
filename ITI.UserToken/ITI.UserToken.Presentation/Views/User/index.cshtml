@@ -7,7 +7,8 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">UserName</th>
-            <th scope="col">Code</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Address</th>
         </tr>
     </thead>
     <tbody>
@@ -16,11 +17,14 @@
             <tr>
                 <td>@UserV.ID</td>
                 <td>@UserV.UserName</td>
-                <td>@UserV.Code</td>
+                <td>@UserV.Mobile</td>
+                <td>@UserV.Address</td>
             </tr>
         }
     </tbody>
 </table>
+@Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary" })
+
 
 @section UserInfo
 {

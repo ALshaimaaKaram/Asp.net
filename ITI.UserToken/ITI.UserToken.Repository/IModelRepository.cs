@@ -11,6 +11,7 @@ namespace ITI.UserToken.Repository
         void Add(T entity);
         T Get(int ID);
         IQueryable<T> Get();
-        void Remove(int ID);
+        void Remove(T entity);
+        void Edit(T entity);
     }
 }

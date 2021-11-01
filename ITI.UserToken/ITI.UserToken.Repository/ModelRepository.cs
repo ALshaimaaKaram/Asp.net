@@ -23,6 +23,14 @@ namespace ITI.UserToken.Repository
         {
             Table.Add(entity);
         }
+        public void Edit(T entity)
+        {
+            Context.Entry(entity).State = EntityState.Modified;
+        }
+        public void Remove(T entity)
+        {
+            Context.Entry(entity).State = EntityState.Deleted;
+        }
         public T Get(int ID)
         {
             return Table.FirstOrDefault(i => i.ID == ID);
@@ -30,10 +38,6 @@ namespace ITI.UserToken.Repository
         public IQueryable<T> Get()
         {
             return Table;
-        }
-        public void Remove(int ID)
-        {
-            Table.Remove(Get(ID));
         }
     }
 }

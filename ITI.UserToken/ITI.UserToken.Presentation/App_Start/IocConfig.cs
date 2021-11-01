@@ -16,9 +16,9 @@ namespace ITI.UserToken.Presentation.App_Start
         {
             var Builder = new ContainerBuilder();
             Builder.RegisterControllers(typeof(MvcApplication).Assembly);
-            Builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
-            Builder.RegisterGeneric(typeof(ModelRepository<>)).As(typeof(IModelRepository<>));
-            Builder.RegisterType<DBContextFactory>().As<IDBContextFactory>();
+            Builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
+            Builder.RegisterGeneric(typeof(ModelRepository<>)).As(typeof(IModelRepository<>)).InstancePerRequest();
+            Builder.RegisterType<DBContextFactory>().As<IDBContextFactory>().InstancePerRequest();
 
             IContainer Container = Builder.Build();
 

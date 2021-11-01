@@ -15,6 +15,12 @@ namespace ITI.UserToken.Models
         [Required]
         [MaxLength(20)]
         public string Password { get; set; }
+        [Required]
+        [MaxLength(500)]
+        public string Address { get; set; }
+        [Required]
+        [MaxLength(12)]
+        public string Mobile { get; set; }
         public virtual ICollection<Token> Tokens { get; set; }
     }
 }

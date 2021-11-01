@@ -1,0 +1,41 @@
+﻿@using ViewModels
+@model UserEditViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div class="container w-50 mt-5 p-0">
+    <h1> Create Page</h1>
+    <div class="m-auto">
+        @using (Html.BeginForm("Create", "User", "POST"))
+        {
+            <div class="row">
+                @Html.LabelFor(i => i.UserName)
+                @Html.TextBoxFor(i => i.UserName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(i => i.UserName)
+            </div>
+
+            <div class="row mt-2">
+                @Html.LabelFor(i => i.Password)
+                @Html.PasswordFor(i => i.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(i => i.Password)
+            </div>
+
+            <div class="row mt-2">
+                @Html.LabelFor(i => i.Address)
+                @Html.TextBoxFor(i => i.Address, new { @class = "form-control" })
+                @Html.ValidationMessageFor(i => i.Address)
+            </div>
+
+            <div class="row mt-2">
+                @Html.LabelFor(i => i.Mobile)
+                @Html.TextBoxFor(i => i.Mobile, new { @class = "form-control" })
+                @Html.ValidationMessageFor(i => i.Mobile)
+            </div>
+
+            @Html.ValidationSummary()
+            <input type="submit" class="btn btn-primary" value="Create" />
+        }
+    </div>
+</div>

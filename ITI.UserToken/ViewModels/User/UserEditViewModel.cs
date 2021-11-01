@@ -22,17 +22,25 @@ namespace ViewModels
         [MaxLength(20, ErrorMessage = "Should Be At Most 10 Characters")]
         [MinLength(6, ErrorMessage = "Should Be At Less 6 Chars")]
         public string Password { get; set; }
+        [Required(ErrorMessage = "Address Required")]
+        [MaxLength(500)]
+        public string Address { get; set; }
+        [Required(ErrorMessage = "Mobile Required")]
+        [MaxLength(12)]
+        public string Mobile { get; set; }
     }
 
     public static class UserEditViewModelExtentions
     {
-        public static User ToModel(this UserEditViewModel UserEditViewModel)
+        public static ITI.UserToken.Models.User ToModel(this UserEditViewModel UserEditViewModel)
         {
-            return new User()
+            return new ITI.UserToken.Models.User()
             {
                 ID = UserEditViewModel.ID,
                 UserName = UserEditViewModel.UserName,
-                Password = UserEditViewModel.Password
+                Password = UserEditViewModel.Password,
+                Address = UserEditViewModel.Address,
+                Mobile = UserEditViewModel.Mobile
             };
         }
     }
