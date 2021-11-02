@@ -43,5 +43,16 @@ namespace ViewModels
                 Mobile = UserEditViewModel.Mobile
             };
         }
+
+        public static UserEditViewModel ToEditableModel(this ITI.UserToken.Models.User User)
+        {
+            return new UserEditViewModel()
+            {
+                ID = User.ID,
+                UserName = User.UserName,
+                Address = User.Address,
+                Mobile = User.Mobile
+            };
+        }
     }
 }

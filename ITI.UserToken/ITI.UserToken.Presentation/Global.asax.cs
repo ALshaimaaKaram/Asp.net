@@ -15,6 +15,7 @@ namespace ITI.UserToken.Presentation
             //AreaRegistration.RegisterAllAreas();
             IocConfig.Configure();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            GlobalFilters.Filters.Add(new HandleErrorAttribute());
         }
     }
 }

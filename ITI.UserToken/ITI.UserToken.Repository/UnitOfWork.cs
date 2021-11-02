@@ -13,14 +13,20 @@ namespace ITI.UserToken.Repository
     {
         DbContext Context;
         IModelRepository<User> UserRepo;
-        public UnitOfWork(IDBContextFactory _Context, IModelRepository<User> _UserRepo)
+        IModelRepository<Token> TokenRepo;
+        public UnitOfWork(IDBContextFactory _Context, IModelRepository<User> _UserRepo, IModelRepository<Token> _TokenRepo)
         {
             Context = _Context.GetContext();
             UserRepo = _UserRepo;
+            TokenRepo = _TokenRepo;
         }
         public IModelRepository<User> GetUserRepo()
         {
             return UserRepo;
+        }
+        public IModelRepository<Token> GetTokenRepo()
+        {
+            return TokenRepo;
         }
 
         public void Save()

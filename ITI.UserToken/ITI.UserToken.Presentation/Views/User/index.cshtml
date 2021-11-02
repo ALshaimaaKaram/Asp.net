@@ -1,30 +1,55 @@
 ﻿@using ViewModels
 @model IEnumerable<UserViewModel>
 
-<h1 class="m-5 ms-2">List of User</h1>
-<table class="table table-warning">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">UserName</th>
-            <th scope="col">Mobile</th>
-            <th scope="col">Address</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (UserViewModel UserV in Model)
-        {
-            <tr>
-                <td>@UserV.ID</td>
-                <td>@UserV.UserName</td>
-                <td>@UserV.Mobile</td>
-                <td>@UserV.Address</td>
-            </tr>
-        }
-    </tbody>
-</table>
-@Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary" })
+<div class="mt-4">
+    @using (Html.BeginForm("Search", "User", "POST"))
+    {
+        <span>
+            Mobile: <input type="text" name="Mobile" class="form-control" style="width:30%; display:inline-block" />
+        </span>
+        <span>
+            User Name: <input type="text" name="UserName" class="form-control" style="width: 30%; display:inline-block" />
+        </span>
+        <button type="submit" class="btn btn-dark">
+            Search
+            @*@Ajax.ActionLink("Search", "Search", null,
+                new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "ListUsers" }, new { @class = "btn btn-dark" })*@
+            @*@Html.ActionLink("Search", "Search", null, new { @class = "btn btn-dark" })*@
+        </button>
+    }
+</div>
 
+
+<div id="ListUsers">
+    @Html.Partial("_UsersInfo", Model)
+</div>
+
+
+<div class="mt-2">
+    @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary me-3" })
+
+    @Html.ActionLink("SortDesc", "SortDesc", null, new { @class = "btn btn-outline-dark me-3" })
+
+    @Html.ActionLink("Sort", "Sort", null, new { @class = "btn btn-outline-dark" })
+</div>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination mt-4">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
 
 @section UserInfo
 {

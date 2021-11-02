@@ -10,6 +10,7 @@ namespace ITI.UserToken.Repository
     public interface IUnitOfWork
     {
         IModelRepository<User> GetUserRepo();
+        IModelRepository<Token> GetTokenRepo();
         void Save();
     }
 }

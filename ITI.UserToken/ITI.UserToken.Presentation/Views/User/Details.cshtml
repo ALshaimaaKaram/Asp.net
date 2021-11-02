@@ -1,0 +1,24 @@
+﻿@using ViewModels
+@model UserViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="mt-5">Details</h2>
+<table class="table table-success">
+    <tr>
+        <td>ID</td>
+        <td>UserName</td>
+        <td>Address</td>
+        <td>Mobile</td>
+    </tr>
+    <tr>
+        <td>@Model.ID</td>
+        <td>@Model.UserName</td>
+        <td>@Model.Address</td>
+        <td>@Model.Mobile</td>
+    </tr>
+</table>
+
+

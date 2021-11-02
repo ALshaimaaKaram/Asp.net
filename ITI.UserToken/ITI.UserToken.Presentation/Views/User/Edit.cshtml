@@ -1,21 +1,14 @@
 ﻿@using ViewModels
 @model UserEditViewModel
-@{
-    ViewBag.Title = "Create";
-}
 
+@{
+    ViewBag.Title = "Edit";
+}
 
 <div class="container w-50 mt-5 p-0">
     <h1> Create Page</h1>
-
-    @*<div id="Loader" style="display:none;">
-        <img src="~/Content/Gif.gif" />
-    </div>*@
-
     <div class="m-auto">
-        @*@using (Html.BeginForm("Create", "User", "POST"))*@
-        @using (Ajax.BeginForm("Create", "User", new AjaxOptions()
-                { HttpMethod = "POST", LoadingElementId = "Loader" , OnSuccess="Message()"}))
+        @using (Html.BeginForm("Edit", "User", "POST"))
         {
             <div class="row">
                 @Html.LabelFor(i => i.UserName)
@@ -42,12 +35,8 @@
             </div>
 
             @Html.ValidationSummary()
-            <input type="submit" class="btn btn-primary" value="Create" />
-        }
+            <input type="submit" class="btn btn-warning" value="Edit" />
+         }
     </div>
 </div>
-<script>
-    function Message() {
-        alert("Success Create")
-    }
-</script>
+

@@ -1,0 +1,41 @@
+﻿@using ViewModels
+@model IEnumerable<UserViewModel>
+
+<h1 class="mt-3 ms-2">List of User</h1>
+<table class="table table-warning">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Address</th>
+            <th scope="col">Details</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (UserViewModel UserV in Model)
+        {
+            <tr>
+                <td>@UserV.ID</td>
+                <td>@UserV.UserName</td>
+                <td>@UserV.Mobile</td>
+                <td>@UserV.Address</td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = UserV.ID }, new { @class = "btn btn-info" })
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = UserV.ID }, new { @class = "btn btn-warning" })
+                </td>
+                @*<td>
+                        @Html.ActionLink("Delete", "Delete", new { id = UserV.ID }, new { @class = "btn btn-danger" })
+                    </td>*@
+                <td>
+                    @Ajax.ActionLink("Delete", "Delete", new { id = UserV.ID },
+                    new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "ListUsers" }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
