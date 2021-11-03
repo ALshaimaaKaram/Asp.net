@@ -1,6 +1,7 @@
 ﻿using ITI.UserToken.Models;
 using ITI.UserToken.Presentation.Filters;
 using ITI.UserToken.Repository;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,28 +79,56 @@ namespace ITI.UserToken.Presentation.Controllers
         [CheckUserIdentity]
         [OutputCache(Duration = 10, Location = System.Web.UI.OutputCacheLocation.Client)]
         [HttpGet]
-        public ActionResult index()
+        public ActionResult index(int? page)
         {
             ViewBag.Title = "Index";
 
 
-            var Users = getUsers();
+            //var Users = Pagenation(); 
+            var Users = getUsers().ToList().ToPagedList(page ?? 1);
+
+            ViewBag.Count = getUsers().Count() / 5;
 
             return View(Users);
         }
 
         public ActionResult SortDesc()
         {
-            var Users = getUsers().OrderByDescending(i => i.UserName);
+            var Users = getUsers().OrderByDescending(i => i.UserName).Take(5);
 
             return View("index",Users);
         }
 
         public ActionResult Sort()
         {
-            var Users = getUsers().OrderBy(i => i.UserName);
+            var Users = getUsers().OrderBy(i => i.UserName).Take(5);
 
             return View("index", Users);
+        }
+
+         static int Count = 0;
+        public IEnumerable<UserViewModel> Pagenation()
+        {
+            
+            var UserList = getUsers().Skip(Count).Take(5);
+
+            //(step == "Prev") ?
+
+            Count += 5;
+
+            return UserList;
+        }
+
+        public IEnumerable<UserViewModel> PagenationPrev()
+        {
+
+            var UserList = getUsers().Skip(Count).Take(5);
+
+            //(step == "Prev") ?
+
+            Count += 5;
+
+            return UserList;
         }
 
         [HttpGet]

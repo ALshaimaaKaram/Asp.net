@@ -1,5 +1,6 @@
 ﻿@using ViewModels
 @model IEnumerable<UserViewModel>
+@*@model PagenationViewModel*@
 
 <div class="mt-4">
     @using (Html.BeginForm("Search", "User", "POST"))
@@ -33,23 +34,46 @@
     @Html.ActionLink("Sort", "Sort", null, new { @class = "btn btn-outline-dark" })
 </div>
 
-<nav aria-label="Page navigation example">
-    <ul class="pagination mt-4">
+<h1>
+    
+</h1>
+<div class="mt-3">
+    <ul class="pagination">
         <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-            </a>
+            <a asp-page="/pagination" asp-route-currentpage="" class="page-link">Prev</a>
         </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        @for (var i = 1; i <= ViewBag.Count; i++)
+        {
+            <li class="page-item">
+                <a asp-page="/pagination" asp-route-currentpage="@i" class="page-link">@i</a>
+            </li>
+        }
         <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
+            <a asp-page="/pagination" asp-route-currentpage="" href="@Url.Action("index")" class="page-link">Next</a>
         </li>
     </ul>
-</nav>
+</div>
+
+@*@(i == Model.CurrentPage ? "active" : "")*@
+
+
+@*<nav aria-label="Page navigation example">
+        <ul class="pagination mt-4">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>*@
 
 @section UserInfo
 {

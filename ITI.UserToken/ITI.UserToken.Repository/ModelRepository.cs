@@ -39,5 +39,10 @@ namespace ITI.UserToken.Repository
         {
             return Table;
         }
+        public IQueryable<T> GetPaginatedResult(int currentPage, int pageSize = 10)
+        {
+            var data = Get();
+            return data.OrderBy(d => d.ID).Skip((currentPage - 1) * pageSize).Take(pageSize);
+        }
     }
 }

@@ -13,5 +13,6 @@ namespace ITI.UserToken.Repository
         IQueryable<T> Get();
         void Remove(T entity);
         void Edit(T entity);
+        IQueryable<T> GetPaginatedResult(int currentPage, int pageSize = 10);
     }
 }
