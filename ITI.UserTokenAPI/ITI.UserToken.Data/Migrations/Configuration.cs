@@ -1,4 +1,4 @@
-﻿namespace ITI.UserTokenAPI.Data.Migrations
+﻿namespace ITI.UserToken.Data.Migrations
 {
     using System;
     using System.Data.Entity;

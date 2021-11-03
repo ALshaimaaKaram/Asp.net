@@ -53,9 +53,9 @@
   <ItemGroup>
     <Compile Include="DBContextFactory.cs" />
     <Compile Include="IDBContextFactory.cs" />
-    <Compile Include="Migrations\202111011614015_init.cs" />
-    <Compile Include="Migrations\202111011614015_init.designer.cs">
-      <DependentUpon>202111011614015_init.cs</DependentUpon>
+    <Compile Include="Migrations\202111031945144_init.cs" />
+    <Compile Include="Migrations\202111031945144_init.designer.cs">
+      <DependentUpon>202111031945144_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="POSDBContext.cs" />
@@ -72,8 +72,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111011614015_init.resx">
-      <DependentUpon>202111011614015_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111031945144_init.resx">
+      <DependentUpon>202111031945144_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -85,7 +85,7 @@ namespace ITI.UserToken.Presentation.Controllers
 
 
             //var Users = Pagenation(); 
-            var Users = getUsers().ToList().ToPagedList(page ?? 1);
+            var Users = getUsers().ToList().ToPagedList(page ?? 1,5);
 
             ViewBag.Count = getUsers().Count() / 5;
 

@@ -25,7 +25,9 @@ namespace ITI.UserTokenAPI.Present.Controllers
             TokenRepository = UnitOfWork.GetTokenRepo();
         }
 
-        private IEnumerable<UserViewModel> getUsers()
+        ResultViewModel Result = new ResultViewModel();
+
+        public IEnumerable<UserViewModel> getUsers()
         {
             return UserRepository.Get()
                         .Select(i => new UserViewModel()
@@ -53,7 +55,7 @@ namespace ITI.UserTokenAPI.Present.Controllers
 
         }
 
-        [System.Web.Mvc.HttpPost]
+        [HttpPost]
         public User Login(UserLoginViewModel User)
         {
             if (!ModelState.IsValid)
@@ -77,14 +79,12 @@ namespace ITI.UserTokenAPI.Present.Controllers
         //[CheckUserIdentity]
         //[OutputCache(Duration = 10, Location = System.Web.UI.OutputCacheLocation.Client)]
         [HttpGet]
-        [Route("Get")]
-        public IEnumerable<UserViewModel> index()
+        public ResultViewModel index()
         {
-            var Users = Pagenation();
-
+            //var Users = Pagenation();
+            Result.Data = getUsers();
             //ViewBag.Count = getUsers().Count() / 5;
-
-            return Users;
+            return Result;
         }
 
         public IEnumerable<UserViewModel> SortDesc()
