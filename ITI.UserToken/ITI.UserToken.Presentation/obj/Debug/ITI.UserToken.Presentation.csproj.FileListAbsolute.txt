@@ -194,3 +194,7 @@ C:\ITI .Net\Asp.net\MVC\ITI.UserToken\ITI.UserToken.Presentation\obj\Debug\ITI.U
 C:\ITI .Net\Asp.net\MVC\ITI.UserToken\ITI.UserToken.Presentation\obj\Debug\ITI.UserToken.Presentation.csproj.CopyComplete
 C:\ITI .Net\Asp.net\MVC\ITI.UserToken\ITI.UserToken.Presentation\obj\Debug\ITI.UserToken.Presentation.dll
 C:\ITI .Net\Asp.net\MVC\ITI.UserToken\ITI.UserToken.Presentation\obj\Debug\ITI.UserToken.Presentation.pdb
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Presentation\bin\PagedList.dll
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Presentation\bin\PagedList.Mvc.dll
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Presentation\bin\PagedList.xml
+C:\ITI .Net\Asp.net\MVC\Labs\ITI.UserToken\ITI.UserToken.Presentation\bin\PagedList.Mvc.xml

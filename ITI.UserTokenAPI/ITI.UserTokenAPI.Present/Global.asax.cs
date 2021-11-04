@@ -1,3 +1,4 @@
+using ITI.UserTokenAPI.Present.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace ITI.UserTokenAPI.Present
     {
         protected void Application_Start()
         {
+            IoCConfig.Configure();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }

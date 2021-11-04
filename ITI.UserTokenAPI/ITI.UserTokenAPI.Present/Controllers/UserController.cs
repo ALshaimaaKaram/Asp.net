@@ -78,14 +78,46 @@ namespace ITI.UserTokenAPI.Present.Controllers
         //[CustomResult]
         //[CheckUserIdentity]
         //[OutputCache(Duration = 10, Location = System.Web.UI.OutputCacheLocation.Client)]
+
         [HttpGet]
         public ResultViewModel index()
         {
-            //var Users = Pagenation();
+            //var users = pagenation();
             Result.Data = getUsers();
-            //ViewBag.Count = getUsers().Count() / 5;
+            //viewbag.count = getusers().count() / 5;
             return Result;
         }
+        [HttpPost]
+        public ResultViewModel index(int? page, string sortOrder)
+        {
+
+            var Users = getUsers();
+
+            string userName = String.IsNullOrEmpty(sortOrder) ? "user_desc" : "";
+            string mobile = sortOrder == "Mobile" ? "mobile_desc" : "Mobile";
+
+            //var Users = getUsers();
+
+            switch (sortOrder)
+            {
+                case "user_desc":
+                    Users = Users.OrderByDescending(s => s.UserName);
+                    break;
+                case "Mobile":
+                    Users = Users.OrderBy(s => s.Mobile);
+                    break;
+                case "mobile_desc":
+                    Users = Users.OrderByDescending(s => s.Mobile);
+                    break;
+                default:
+                    Users = Users.OrderBy(s => s.UserName);
+                    break;
+            }
+
+            Result.Data = getUsers();
+            return Result;
+        }
+
 
         public IEnumerable<UserViewModel> SortDesc()
         {
@@ -126,37 +158,31 @@ namespace ITI.UserTokenAPI.Present.Controllers
             return UserList;
         }
 
-        [HttpGet]
-        public void Create()
-        {
-            //ViewBag.Title = "Create";
-
-            return;
-        }
-
         //[CheckUserIdentity]
         [HttpPost]
-        public void Create(UserEditViewModel User)
+        public UserViewModel Create(int id, string UserName, string Address, string Mobile, string Password)
         {
             //Thread.Sleep(5000);
             //ViewBag.Title = "Create";
 
+            User User = new User();
+            User.ID = id;
+            User.Mobile = Mobile;
+            User.UserName = UserName;
+            User.Address = Address;
+            User.Password = Password;
 
-            if (ModelState.IsValid)
-            {
-                User UserAdd = User.ToModel();
-                UserRepository.Add(UserAdd);
 
-                TokenRepository.Add(new Token() { UserID = UserAdd.ID, Code = Guid.NewGuid().ToString() });
 
-                UnitOfWork.Save();
+            UserViewModel UserAdd = User.ToViewModel();
+            UserRepository.Add(User);
 
-                ModelState.Clear();
-                return;
-                //return Redirect("/User/index");
-            }
+            TokenRepository.Add(new Token() { UserID = UserAdd.ID, Code = Guid.NewGuid().ToString() });
 
-            return;
+            UnitOfWork.Save();
+
+            ModelState.Clear();
+            return UserAdd;
         }
 
         //[CheckUserIdentity]

@@ -6,8 +6,12 @@
     <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">UserName</th>
-            <th scope="col">Mobile</th>
+            <th scope="col">
+                @Html.ActionLink("UserName", "index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th scope="col">
+                @Html.ActionLink("Mobile", "index", new { sortOrder = ViewBag.MobileSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
             <th scope="col">Address</th>
             <th scope="col">Details</th>
             <th scope="col">Edit</th>

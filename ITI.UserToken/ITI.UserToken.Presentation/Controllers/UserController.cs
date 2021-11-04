@@ -40,12 +40,12 @@ namespace ITI.UserToken.Presentation.Controllers
 
 
         [HttpPost]
-        public ActionResult Search(string Mobile, string UserName)
+        public ActionResult Search(string Mobile, string UserName, int? page)
         {
             var UserSearch = UserRepository.Get().Where(i => i.Mobile == Mobile || i.UserName == UserName).OrderBy(i => i.UserName)
                 .ToList().Select(c => c.ToViewModel());
 
-            return View("index", UserSearch);
+            return View("index", UserSearch.ToList().ToPagedList(page ?? 1, 5));
         }
 
         [HttpGet]
@@ -79,34 +79,58 @@ namespace ITI.UserToken.Presentation.Controllers
         [CheckUserIdentity]
         [OutputCache(Duration = 10, Location = System.Web.UI.OutputCacheLocation.Client)]
         [HttpGet]
-        public ActionResult index(int? page)
+        public ActionResult index(int? page, string sortOrder)
         {
             ViewBag.Title = "Index";
+            ViewBag.CurrentSort = sortOrder;
 
+
+
+            var Users = getUsers();
+
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "user_desc" : "";
+            ViewBag.MobileSortParm = sortOrder == "Mobile" ? "mobile_desc" : "Mobile";
+
+            //var Users = getUsers();
+
+            switch (sortOrder)
+            {
+                case "user_desc":
+                    Users = Users.OrderByDescending(s => s.UserName);
+                    break;
+                case "Mobile":
+                    Users = Users.OrderBy(s => s.Mobile);
+                    break;
+                case "mobile_desc":
+                    Users = Users.OrderByDescending(s => s.Mobile);
+                    break;
+                default:
+                    Users = Users.OrderBy(s => s.UserName);
+                    break;
+            }
 
             //var Users = Pagenation(); 
-            var Users = getUsers().ToList().ToPagedList(page ?? 1,5);
+            
 
-            ViewBag.Count = getUsers().Count() / 5;
+            //ViewBag.Count = getUsers().Count() / 5;
 
-            return View(Users);
+            return View(Users.ToList().ToPagedList(page ?? 1, 5));
         }
 
-        public ActionResult SortDesc()
+        public ActionResult SortDesc(int? page)
         {
-            var Users = getUsers().OrderByDescending(i => i.UserName).Take(5);
-
-            return View("index",Users);
+            var Users = getUsers().OrderByDescending(i => i.UserName).ToList().ToPagedList(page ?? 1, 5);
+            return View("index");
         }
 
-        public ActionResult Sort()
+        public ActionResult Sort(int? page)
         {
-            var Users = getUsers().OrderBy(i => i.UserName).Take(5);
+            var Users = getUsers().OrderBy(i => i.UserName).ToList().ToPagedList(page ?? 1, 5);
 
             return View("index", Users);
         }
 
-         static int Count = 0;
+        static int Count = 0;
         public IEnumerable<UserViewModel> Pagenation()
         {
             

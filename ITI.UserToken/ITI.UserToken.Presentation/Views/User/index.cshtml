@@ -1,5 +1,10 @@
-﻿@using ViewModels
-@model IEnumerable<UserViewModel>
+﻿@using PagedList
+@using PagedList.Mvc
+
+@using ViewModels
+@model IPagedList<UserViewModel>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
 @*@model PagenationViewModel*@
 
 <div class="mt-4">
@@ -35,24 +40,29 @@
 </div>
 
 <h1>
-    
 </h1>
-<div class="mt-3">
+@*<div class="mt-3">
     <ul class="pagination">
-        <li class="page-item">
-            <a asp-page="/pagination" asp-route-currentpage="" class="page-link">Prev</a>
-        </li>
-        @for (var i = 1; i <= ViewBag.Count; i++)
-        {
-            <li class="page-item">
-                <a asp-page="/pagination" asp-route-currentpage="@i" class="page-link">@i</a>
-            </li>
-        }
-        <li class="page-item">
-            <a asp-page="/pagination" asp-route-currentpage="" href="@Url.Action("index")" class="page-link">Next</a>
-        </li>
-    </ul>
-</div>
+        <li class="page-item">*@
+@*@Html.PagedListPager(Model, page => Url.Action("index", new { page }), Bootstrap4PagedListRenderOptions.ClassicPlusFirstAndLast)*@
+@Html.PagedListPager(
+Model,
+page => Url.Action("index",
+new { page, sortOrder = ViewBag.CurrentSort }),
+new PagedListRenderOptions
+{
+    LinkToFirstPageFormat = "<<",
+    LinkToLastPageFormat = ">>",
+    //LinkToNextPageFormat = "→",
+    //LinkToPreviousPageFormat = "←",
+    LiElementClasses = new[] { "page-item" },
+    UlElementClasses = new[] { "pagination", "pagination-theme" }
+}
+)
+
+@*</li>
+        </ul>
+    </div>*@
 
 @*@(i == Model.CurrentPage ? "active" : "")*@
 
