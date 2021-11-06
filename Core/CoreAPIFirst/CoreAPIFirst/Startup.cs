@@ -17,17 +17,20 @@ namespace CoreAPIFirst
 
         public void Configure(IApplicationBuilder app)
         {
-            app.UseDeveloperExceptionPage();
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>
-                    {
-                        await context.Response.WriteAsync("ITI");
-                    }
+                {
+                    await context.Response.WriteAsync("Hello");
+                    context.Response.WriteAsync("HelloSec");
+                });
+
+                endpoints.MapGet("/List", context =>
+
+                  context.Response.WriteAsync("My List")
                 );
             });
-
 
             //app.Use(async (context, next) =>
             //{

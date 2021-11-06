@@ -14,10 +14,12 @@ namespace CoreAPIFirst
         }
 
         static IHostBuilder CreateHostBuilder()
-             => Host.CreateDefaultBuilder()
-                .ConfigureWebHostDefaults(webHost =>
-                {
-                    webHost.UseStartup<Startup>();
-                });
+            =>
+                Host.CreateDefaultBuilder()
+                    .ConfigureWebHostDefaults(WebHost =>
+                    {
+                        WebHost.UseStartup<Startup>();
+                    });
+
     }
 }
